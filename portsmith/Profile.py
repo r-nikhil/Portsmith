@@ -1,13 +1,14 @@
 import os, string
-import ConfigParse
 
-from crytography.fernet import Fernet
+from portsmith.crypto import CryptoMethd
+
 class Profile:
 
 	def __init__(self, directory, knockPort):
 		self.directory = directory
 		self.knockPort = knockPort
-		
+		self.cryptoMethd = CryptoMethd()
+
 
 
 	def getKnockPort(self):
@@ -19,19 +20,15 @@ class Profile:
 		file.close
 		return key
 
-	def storeKey(self, key, path):
-		file = open(self.directory + "/enc.key", 'w')
-		file.write(key)
+	def storeKey(self):
+		file = open(self.directory + "/enc.key", 'wb')
+		file.write(self.cryptoMethd.key)
 		file.close()
 
 	def storePort(self):
-		file = open(self.directory + "port.txt", 'w')
-		file.write(str(knockPort))
+		file = open(self.directory + "/port.txt", 'w')
+		file.write(str(self.knockPort))
 		file.close
-
-	def store():
-		self.storeKey()
-		self.storePort()
 
 
 	def encrypt(self, plaintext):
