@@ -2,7 +2,7 @@ import os, sys
 from portsmith.Profile import Profile
 
 
-APP_DIR = '/etc/portsmith.d'
+DAEMON_DIR = '/etc/portsmith.d'
 PROFILES_DIR= DAEMON_DIR + 'profiles/'
 
 def createDirectory(profileName):
@@ -21,6 +21,8 @@ def main(argv):
 	knockPort = argv[1]
 
 	createDirectory(profileName)
+	profile = Profile(PROFILES_DIR + profileName, knockPort)
+	profile.store()
 
 	print("Profile generated at" + PROFILES_DIR + profileName)
 

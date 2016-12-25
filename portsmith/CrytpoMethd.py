@@ -16,7 +16,12 @@ Class CrytoMethd:
 
 	def encrypt(self, plaintext):
 
-		encrypted = self.key(bytes(plaintext))
+		encrypted = self.f.encrypt(plaintext)
+		return encrypted
+
+		
 		return encrypted
 
 	def decrypt(self, ciphertext):
+		decrypted = self.f.decrypt(ciphertext)
+		return decrypted
