@@ -1,3 +1,5 @@
 dist/
 TODO.txt
 __pycache__/
+test-profile/
+test.py
