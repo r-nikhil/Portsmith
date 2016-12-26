@@ -1,7 +1,7 @@
 import os, sys
 from portsmith.log import Log
 from portsmith.profiles import Profiles
-from portsmith.knocklsiten import knockListener
+from portsmith.knocklsiten import KnockListener
 from portsmith.PortOpener import PortOpener
 def checkConditions():
 	if(not os.geteuid() == 0):
@@ -19,6 +19,7 @@ def handleFirewall(input, config):
 def knockHandler(output, profiles):
 	portOpener = PortOpener(output)
 	knockListener = KnockListener(logFile, profiles, portOpener)
+	knockListener.listenAndOpen()
 
 def main(argv):
 	logFile = Log('/var/log/kern.log') 
