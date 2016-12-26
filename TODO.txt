@@ -1,0 +1,5 @@
+1) add user permissions to the folders
+2) Fork out code for runnig privileged tasks. isolate stuff for security
+3)right now it only opens ports. make sure it closes ports after usage
+4)handle exceptions and corner cases
+5)make a daemon for runnig the server code
